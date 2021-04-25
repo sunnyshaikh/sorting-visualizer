@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#393e46">
+    <title>Sorting visualiser</title>
+    <link rel="shortcut icon" href="./src/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">Sorting visualiser</h1>
+        <div class="bar-container" id="bar-container"></div>
+        <div class="nav-container">
+            <div class="effect-buttons">
+                <button class="new-array btn" title="Generate new bars" id="new-array">New
+                    bars</button>
+                <button class="dir btn" title="Change bar direction" onclick="changeBarDirection()"><i
+                        class="fas fa-exchange-alt" style="transform: rotate(90deg);"></i></button>
+            </div>
+            <div class="sliders">
+                <div class="slider-group">
+                    <label for="size">Size</label>
+                    <input type="range" min="2" max="50" id="size" class="slider slider-size"
+                        oninput="generateBars(this.value)">
+                </div>
+                <div class="slider-group">
+                    <label for="speed">Speed</label>
+                    <input type="range" min="500" max="2000" id="speed" class="slider slider-speed">
+                </div>
+            </div>
+            <div class="sort-buttons">
+                <button class="bubble-sort btn">Bubble sort</button>
+                <button class="insertion-sort btn">Insertion sort</button>
+                <button class="selection-sort btn">Selection sort</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="./src/js/main.js"></script>
+<script src="./src/js/sorting_algo.js"></script>
+
+</html>

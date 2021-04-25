@@ -5,5 +5,5 @@ This is one of the coolest app i see as a developer. It has a lot to learn about
 
 I Hope you like it's UI and functionality.
 
-Just check out: [https://sunnyshaikh.github.io/sorting-visualiser](https://sunnyshaikh.github.io/sorting-visualiser)
+Just check out: [https://sunnyshaikh.github.io/sorting-visualizer/](https://sunnyshaikh.github.io/sorting-visualizer/)
 

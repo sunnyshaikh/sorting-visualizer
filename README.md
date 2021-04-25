@@ -7,3 +7,7 @@ I Hope you like it's UI and functionality.
 
 Just check out: [https://sunnyshaikh.github.io/sorting-visualizer/](https://sunnyshaikh.github.io/sorting-visualizer/)
 
+### Screenshots:
+<img src="src/desktop-preview.png" />
+<img src="src/mobile-preview.png" />
+

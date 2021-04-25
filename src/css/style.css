@@ -33,6 +33,23 @@ body {
   line-height: 80px;
 }
 
+select {
+  font-family: 'Ubuntu', sans-serif;
+  background: #393e46;
+  color: #f6e9e9;
+  border: none;
+  outline: none;
+  padding: .75rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+select:disabled {
+  color: gray;
+}
+
 .btn {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
@@ -48,14 +65,21 @@ body {
   transition: .3s ease;
 }
 
-.btn:hover {
+.btn:hover:not(.btn-disabled) {
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-.btn:active {
+.btn:active:not(.btn-disabled) {
+  -webkit-transition: none;
+  transition: none;
   -webkit-transform: scale(0.97);
           transform: scale(0.97);
+}
+
+.btn-disabled {
+  color: gray;
+  pointer-events: none;
 }
 
 .bar-container {
@@ -84,12 +108,9 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(#05E8BA), to(#087EE1));
   background: linear-gradient(#05E8BA, #087EE1);
   border: 1px solid #232931;
-  border-radius: 3px 3px 0 0;
-}
-
-.bar-container .bar:hover {
-  -webkit-transition: 5s ease;
-  transition: 5s ease;
+  border-radius: 3px;
+  -webkit-transition: .1s;
+  transition: .1s;
 }
 
 .bar-container.active {

@@ -3,6 +3,7 @@ $bg-secondary: #393e46;
 $bg-bar1: #087EE1;
 $bg-bar2: #05E8BA;
 $text-light: #f6e9e9;
+$text-disabled: gray;
 
 * {
     margin: 0;
@@ -33,6 +34,22 @@ body {
     line-height: 80px;
 }
 
+select {
+    font-family: 'Ubuntu', sans-serif;
+    background: $bg-secondary;
+    color: $text-light;
+    border: none;
+    outline: none;
+    padding: .75rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+select:disabled {
+    color: $text-disabled;
+}
+
 .btn {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
@@ -46,13 +63,19 @@ body {
     cursor: pointer;
     transition: .3s ease;
 
-    &:hover {
+    &:hover:not(.btn-disabled) {
         box-shadow: 0 3px 6px rgba(0,0,0,0.3);
     }
     
-    &:active {
+    &:active:not(.btn-disabled) {
+        transition: none;
         transform: scale(0.97);
     }
+}
+
+.btn-disabled {
+    color: $text-disabled;
+    pointer-events: none;
 }
 
 .bar-container {
@@ -69,11 +92,8 @@ body {
         max-width: 40px;
         background: linear-gradient($bg-bar2, $bg-bar1);
         border: 1px solid $bg-dark;
-        border-radius: 3px 3px 0 0;
-
-        &:hover {
-            transition: 5s ease;
-        }
+        border-radius: 3px;
+        transition: .1s;
     }
 }
 
@@ -113,6 +133,7 @@ body {
         flex: 1;
     }
 }
+
 
 @media screen and (max-width: 560px) {
     .nav-container {

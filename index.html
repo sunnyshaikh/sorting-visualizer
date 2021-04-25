@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#393e46">
-    <title>Sorting visualiser</title>
+    <title>Sorting visualizer</title>
     <link rel="shortcut icon" href="./src/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
@@ -18,35 +18,42 @@
 
 <body>
     <div class="container">
-        <h1 class="heading">Sorting visualiser</h1>
+        <h1 class="heading">Sorting visualizer</h1>
         <div class="bar-container" id="bar-container"></div>
         <div class="nav-container">
             <div class="effect-buttons">
                 <button class="new-array btn" title="Generate new bars" id="new-array">New
                     bars</button>
-                <button class="dir btn" title="Change bar direction" onclick="changeBarDirection()"><i
+                <button class="dir btn no-disable" title="Change bar direction" onclick="changeBarDirection()"><i
                         class="fas fa-exchange-alt" style="transform: rotate(90deg);"></i></button>
             </div>
             <div class="sliders">
                 <div class="slider-group">
-                    <label for="size">Size</label>
+                    <label for="size">No. of bars</label>
                     <input type="range" min="2" max="50" id="size" class="slider slider-size"
                         oninput="generateBars(this.value)">
                 </div>
                 <div class="slider-group">
                     <label for="speed">Speed</label>
-                    <input type="range" min="500" max="2000" id="speed" class="slider slider-speed">
+                    <input type="range" min="200" max="2000" id="speed" class="slider slider-speed"
+                        oninput="changeSpeed(this.value)">
                 </div>
             </div>
             <div class="sort-buttons">
-                <button class="bubble-sort btn">Bubble sort</button>
-                <button class="insertion-sort btn">Insertion sort</button>
-                <button class="selection-sort btn">Selection sort</button>
+                <select class="sort" id="algo">
+                    <option value="0">Bubble sort</option>
+                    <option value="1">Insertion sort</option>
+                    <option value="2">Selection sort</option>
+                    <option value="3" disabled>Merge sort</option>
+                    <option value="4" disabled>Quick sort</option>
+                </select>
+                <button class="start btn" onclick="startSorting()">Start</button>
             </div>
         </div>
     </div>
 </body>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="./src/js/main.js"></script>
 <script src="./src/js/sorting_algo.js"></script>
 

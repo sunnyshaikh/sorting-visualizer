@@ -1,5 +1,14 @@
 // selectors
 const barContainer = document.getElementById('bar-container');
+// colors
+const colors = {
+    success1: "#5AFF15",
+    success2: "#00B712",
+    danger1: "#FBD72B",
+    danger2: "#F9484A",
+    default1: "#05E8BA",
+    default2: "#087EE1",
+}
 
 // change bar direction 
 const changeBarDirection = () => {
@@ -30,3 +39,49 @@ newBtn.addEventListener('click', () => {
     generateBars(arrayOfBars.length)
 })
 
+// on start button
+const startSorting = () => {
+    const type = document.getElementById('algo').value;
+    if (type == 0)
+        bubbleSort();
+    else if (type == 1)
+        insertionSort();
+    else if (type == 2)
+        selectionSort();
+    else if (type == 3)
+        mergeSort();
+    else
+        quickSort();
+}
+
+// speed
+let delay = 200;
+const changeSpeed = speed => {
+    delay = parseInt(speed);
+}
+
+// disable elements when sorting in process
+const disableElements = () => {
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => {
+        if (!btn.classList.contains('no-disable')) {
+            btn.setAttribute('disabled', 'disabled')
+            btn.classList.add('btn-disabled');
+        }
+    });
+
+    document.getElementById('size').disabled = true;
+    document.getElementById('algo').disabled = true;
+}
+
+// enable elements when sorting completed
+const enableElements = () => {
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => {
+        btn.removeAttribute('disabled');
+        btn.classList.remove('btn-disabled');
+    });
+
+    document.getElementById('size').disabled = false;
+    document.getElementById('algo').disabled = false;
+}

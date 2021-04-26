@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="./src/css/jquery.toast.min.css">
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
@@ -26,6 +27,10 @@
                     bars</button>
                 <button class="dir btn no-disable" title="Change bar direction" onclick="changeBarDirection()"><i
                         class="fas fa-exchange-alt" style="transform: rotate(90deg);"></i></button>
+                <button class="btn no-disable" title="Refresh page" onclick="location.reload()"
+                    style="margin-left: .25rem;">
+                    <i class="fas fa-redo"></i>
+                </button>
             </div>
             <div class="sliders">
                 <div class="slider-group">
@@ -35,7 +40,7 @@
                 </div>
                 <div class="slider-group">
                     <label for="speed">Speed</label>
-                    <input type="range" min="200" max="2000" id="speed" class="slider slider-speed"
+                    <input type="range" min="40" max="1000" id="speed" class="slider slider-speed"
                         oninput="changeSpeed(this.value)">
                 </div>
             </div>
@@ -53,7 +58,10 @@
     </div>
 </body>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"></script>
+<script src="./src/js/jquery.toast.min.js"></script>
 <script src="./src/js/main.js"></script>
 <script src="./src/js/sorting_algo.js"></script>
 

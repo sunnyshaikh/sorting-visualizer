@@ -10,6 +10,8 @@ const colors = {
     default2: "#087EE1",
 }
 
+let sorted = false;
+
 // change bar direction 
 const changeBarDirection = () => {
     barContainer.classList.toggle('active');
@@ -17,7 +19,9 @@ const changeBarDirection = () => {
 
 // generate bars
 let arrayOfBars = [];
-const generateBars = (size = 50) => {
+const size = document.getElementById('size').value;
+const generateBars = (size) => {
+    sorted = false;
     barContainer.innerHTML = '';
     arrayOfBars = [];
     for (let i = 0; i < size; i++) {
@@ -31,7 +35,7 @@ const generateBars = (size = 50) => {
     }
 }
 
-generateBars();
+generateBars(size);
 
 // generate bars on click 
 const newBtn = document.getElementById('new-array');
@@ -55,7 +59,7 @@ const startSorting = () => {
 }
 
 // speed
-let delay = 200;
+let delay = document.getElementById('speed').value;
 const changeSpeed = speed => {
     delay = parseInt(speed);
 }

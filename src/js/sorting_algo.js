@@ -106,6 +106,52 @@ const insertionSort = async () => {
 }
 
 // Selection sort
-const selectionSort = () => {
-    alert('selection sort')
+const selectionSort = async () => {
+    console.log('selection sort', arrayOfBars.length);
+    if (sorted) {
+        $.toast({
+            heading: "Already sorted",
+            text: "To sort again, click New bars",
+            icon: "success",
+            hideAfter: 5000,
+            position: "top-right"
+        });
+        return
+    };
+    // selecting all bars
+    disableElements();
+    const bars = document.querySelectorAll('.bar');
+    let n = bars.length;
+
+    for (let i = 0; i < n - 1; i++) {
+        let min = i;
+        bars[i].style.background = `linear-gradient(yellow, yellowgreen)`;
+        for (let j = i + 1; j < n; j++) {
+
+            bars[j].style.background = `linear-gradient(${colors.danger1}, ${colors.danger2})`;
+            await hold(delay);
+            if (parseInt(bars[j].style.height) < parseInt(bars[min].style.height)) {
+                if (min !== i)
+                    bars[min].style.background = `linear-gradient(${colors.default1}, ${colors.default2})`;
+                min = j;
+            }
+            else
+                bars[j].style.background = `linear-gradient(${colors.default1}, ${colors.default2})`;
+        }
+        await hold(delay);
+        swap(bars[min], bars[i]);
+        bars[min].style.background = `linear-gradient(${colors.default1}, ${colors.default2})`;
+        bars[i].style.background = `linear-gradient(${colors.success1}, ${colors.success2})`;
+    }
+    bars[n - 1].style.background = `linear-gradient(${colors.success1}, ${colors.success2})`;
+
+    $.toast({
+        heading: "Success",
+        text: "Elements sorting completed",
+        icon: "success",
+        hideAfter: 5000,
+        position: "top-right"
+    });
+    enableElements();
+    sorted = true;
 }
